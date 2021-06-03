@@ -37,8 +37,6 @@ checkPassword() {
 if(pass.value !== confirmPass.value){
 confirmPass.setErrors({notSame: true });
   }
-else 
-confirmPass.setErrors(null);
   }
 }
 
