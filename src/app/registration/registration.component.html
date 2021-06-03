@@ -1,0 +1,58 @@
+<div class="card">
+    <h1 class="card-header">Register</h1>
+    <div class="card-body">
+             <form [formGroup]="userForm" class="text-center border border-light p-5" novalidate (submit)="onSubmit()">
+             <div class="form-group">
+                <label for="fName">First Name: </label>
+                <input type="text" formControlName="firstName" id="defaultRegisterFormFirstName" class="form-control" placeholder="First name">
+                <div *ngIf="userForm?.controls['firstName']?.invalid && (userForm?.controls['firstName']?.dirty || userForm?.controls['firstName']?.touched)" style="color:red">
+                   <div *ngIf="userForm?.controls['firstName']?.errors?.required">*First name is required</div>
+                   <div *ngIf="userForm?.controls['firstName']?.errors?.pattern">*First name must contain only alphanumeric characters</div>
+                </div>
+             </div>
+             <br>
+             <div class="form-group">
+                <label for="lName">Last Name: </label>
+                <input type="text" formControlName="lastName" id="defaultRegisterFormLastName" class="form-control" placeholder="Last name" >
+                <div *ngIf="userForm?.controls['lastName']?.invalid && (userForm?.controls['lastName']?.dirty || userForm?.controls['lastName']?.touched)" style="color:red">
+                    <div *ngIf="userForm?.controls['lastName']?.errors?.required">*Last name is required</div>
+                    <div *ngIf="userForm?.controls['lastName']?.errors?.pattern">*Last name must contain only alphanumeric characters</div>
+                 </div>
+             </div>
+             <br>
+             <div class="form-group">
+                <label for="email">Email: </label>
+                <input type="email" formControlName="email" id="defaultRegisterFormEmail" class="form-control" placeholder="E-mail">
+                <div *ngIf="userForm?.controls['email']?.invalid && (userForm?.controls['email']?.dirty || userForm?.controls['email']?.touched)" style="color:red">
+                   <div *ngIf="userForm?.controls['email']?.errors?.required">*Email is required</div>
+                   <div *ngIf="userForm?.controls['email']?.errors?.pattern">*Email must be valid</div>
+                </div>
+             </div>
+             <br>
+             <div class="form-group">
+                <label for="password">Password: </label>
+                <input type="password" formControlName="password" id="defaultRegisterFormPassword" class="form-control mb-4" placeholder="Password">
+                <div *ngIf="userForm?.controls['password']?.invalid && (userForm?.controls['password']?.dirty || userForm?.controls['password']?.touched)" style="color:red">
+                <div *ngIf="userForm?.controls['password']?.errors?.required">*Password is required</div>
+                <div *ngIf="userForm?.controls['password']?.errors?.minlength">*Password must contain atleast 8 characters including alphanumeric and special characters</div>
+                </div>
+             </div>
+             <br>
+             <div class="form-group">
+                <label for="password">Confirm Password: </label>
+                <input type="password" formControlName="confirm_password" id="defaultRegisterFormCPassword" class="form-control mb-4" placeholder="Confirm Password">
+                <div *ngIf="userForm?.controls['confirm_password'].invalid && (userForm?.controls['confirm_password']?.dirty || userForm?.controls['confirm_password']?.touched)" style="color:red">
+                    <div *ngIf="userForm?.controls['confirm_password']?.errors?.required">*Confirm Password is required</div>
+                    <div *ngIf="userForm?.controls['confirm_password']?.errors?.notSame">Password and Confirm Password must match</div>
+                </div>
+             </div>
+             <br>
+             <div class="form-group">
+            <button class="btn btn-info my-4 btn-block" type="submit" [disabled]="userForm?.invalid">Register</button>
+             <br>
+            </div>
+             <br>
+        </form>
+    </div>
+</div>
+
