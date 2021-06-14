@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'angular-web5709Tutorial3'`, () => {
+  it(`should have as title 'csci5709-tutorial4'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('angular-web5709Tutorial3');
+    expect(app.title).toEqual('csci5709-tutorial4');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('angular-web5709Tutorial3 app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('csci5709-tutorial4 app is running!');
   });
 });

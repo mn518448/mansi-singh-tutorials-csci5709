@@ -1,0 +1,37 @@
+<div class="row" style="height: 65px;position: fixed;z-index: 1000;top: 0;background-color: white;width: 100%; margin: 0px;">
+    <div class="col-md-6">
+        <mat-label style="
+        margin: 20px;
+        position: relative;
+        top: 20px;
+        font-size: 50px;
+        font-weight: 700;">Welcome!</mat-label>
+    </div>
+
+    <div class="col-md-4">
+        <mat-form-field class="form-field">
+            <mat-label>Search</mat-label>
+            <mat-icon matPrefix style="font-size: 25px;">search</mat-icon>
+            <input matInput type="text" [(ngModel)]="Search" style="height: 25px;" (keyup)="searchKeyword()">
+            <button *ngIf="Search" matSuffix mat-icon-button aria-label="Clear" (click)="clear()">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+    </div>
+
+    <div class="col-md-2">
+        <button mat-raised-button color="primary" (click)="logout()" style="float:right; margin: 15px;">Logout</button>
+    </div>
+
+</div>
+
+<div class="profile-container">
+    <mat-card matRipple class="profile-card" *ngFor="let user of allUsers; let i = index;" (click)="openCard(user?.id)">
+        <section class="img-section">
+            <img [src]="user?.picture" alt="profile picture">
+        </section>
+        <section class="detail-section">
+            {{user?.title}}, {{user?.firstName}} {{user?.lastName}}
+        </section>
+    </mat-card>
+</div>

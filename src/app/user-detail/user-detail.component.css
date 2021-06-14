@@ -1,0 +1,22 @@
+html,body { 
+    height:98%;
+}
+.profile-container{
+    width: 100%;
+    background-color: #EAEAEA;
+    display: flex;
+    flex-flow: row wrap;
+    padding: 0px 9%;
+    overflow-y: auto;
+    margin-top: 65px;
+    height: 100%;
+}
+
+.card{
+    
+    margin: auto;
+    width: 70%;
+    font-size: 25px;
+    line-height: 40px;
+
+}

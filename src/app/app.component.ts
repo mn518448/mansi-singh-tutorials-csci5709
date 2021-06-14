@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
+import { UserAuthService } from './user-auth.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'CSCI-5709 Tutorial 3';
+  title = 'csci5709-tutorial4';
+
+  constructor(public userAuthService: UserAuthService){}
 }

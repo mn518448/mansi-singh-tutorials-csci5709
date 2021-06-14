@@ -1,0 +1,42 @@
+.form-field{
+    width: 50%;
+    margin: 5px;
+}
+html,body { 
+    height:98%;
+}
+.profile-container{
+    width: 100%;
+    background-color: #EAEAEA;
+    display: flex;
+    flex-flow: row wrap;
+    padding: 0px 9%;
+    overflow-y: auto;
+    margin-top: 65px;
+}
+
+.profile-card{
+    margin: 15px;
+    height: 250px;
+    width: 210px;
+    cursor: pointer;
+}
+
+img{
+    margin: 0px 0%;
+    width: 100%;
+}
+
+.detail-section{
+
+    height: 50px;
+    text-align: center;
+    font-size: larger;
+    font-weight: 500;
+    text-transform: capitalize;
+    display: table-cell;
+    vertical-align: middle;
+    width: 100vw
+}
+
+
