@@ -7,40 +7,39 @@ import { HttpCallsService } from './http-calls.service';
   providedIn: 'root'
 })
 export class UserAuthService {
-  allProfiles: any[] = [];
+  loading : boolean = false;
+  allUserProfiles: any[] = [];
   loggedinUser: any;
   allUserList: any;
-  selectedUser:any;
+  profileSelected:any;
   loggedInStatus: any;
-  loading : boolean = false;
+  
   constructor(private httpservice: HttpCallsService, private router: Router) { }
 
   public addNewUser(obj:any){
-    this.allProfiles.push(obj)
+    this.allUserProfiles.push(obj)
   }
 
-  public validateUser(email:string, password:string){
-  
+  public validateUserLogin(email:string, password:string){
   this.loading = true;
   this.httpservice.loginUser(email, password)
   .subscribe((result: any) => {
     console.log(result)
     if(result && result.status){
-      this.setLoggedInStatus(result);
+      this.setUserLoggedInStatus(result);
       this.getAllUsersCall();
         
     }
   },
   (error: any) =>{
-    console.log(error.error)
-    this.setLoggedInStatus(error.error);
+    this.setUserLoggedInStatus(error.error);
     this.loading =false
   });
   }
 
   getAllUsersCall(){
     this.loading =true
-    this.httpservice.getAllUsers()
+    this.httpservice.getAllProfileUsers()
     .subscribe( 
       (result: any) => {
       if(result && result.data){
@@ -55,51 +54,53 @@ export class UserAuthService {
     })    
   }
 
-  getUserById(id : any){
+  getUserByIdCall(id : any){
     this.loading =true
-    this.httpservice.getUserById(id)
+    this.httpservice.getUserProfileById(id)
     .subscribe( (result: any) => {
       if(result && result.data){
         this.setSelectedUsers(result.data);
         this.loading = false
-        this.router.navigate(['/user-details'])
+        this.router.navigate(['/profile-detail'])
       }
     },
     (error: any) =>{
       console.log(error)
       this.loading =false
-      //this.setSelectedUsers(error);
     }
     );
 
   }
 
-  getLoggedInStatus(){
-    return this.loggedInStatus;
-  }
-
-  setLoggedInStatus(status: boolean){
-    this.loggedInStatus = status;
-  }
-
   public getLoggedinUser(){
     return this.loggedinUser;
   }  
+
   public setLoggedinUser(user : any){
     this.loggedinUser = user;
   }
 
-  setAllUsers(userList: any){
-    this.allUserList = userList;  
+  setAllUsers(userProfileList: any){
+    this.allUserList = userProfileList;  
   }
 
   getAllUsers(){
     return this.allUserList;
   }
+
   setSelectedUsers(user: any){
-    this.selectedUser = user;
+    this.profileSelected = user;
   }
-  getSelectedUser(){
-    return this.selectedUser;
+
+  getSelectedUserProfile(){
+    return this.profileSelected;
+  }
+
+  getUserLoggedInStatus(){
+    return this.loggedInStatus;
+  }
+
+  setUserLoggedInStatus(status: boolean){
+    this.loggedInStatus = status;
   }
 }

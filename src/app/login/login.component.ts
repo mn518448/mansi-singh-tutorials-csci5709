@@ -15,10 +15,8 @@ export class LoginComponent implements OnInit {
   emailValue: string = "";
   passwordValue: string = "";
   loading: boolean;
-  // loginResponse: LoginResponse;
-  // errorMessage: string;
 
-  constructor(private formBuilder: FormBuilder, private router: Router,private route: ActivatedRoute, private authService: UserAuthService) { 
+  constructor(private formBuilder: FormBuilder, private router: Router,private route: ActivatedRoute, public authService: UserAuthService) { 
     this.loginForm = this.formBuilder.group({
       Email: ["", [Validators.required, Validators.pattern(this.emailPattern)]],
       Password: ["", Validators.required]
@@ -32,7 +30,7 @@ export class LoginComponent implements OnInit {
   onSubmit(){
     this.emailValue=this.loginForm.controls["Email"].value;
     this.passwordValue=this.loginForm.controls["Password"].value;
-  this.authService.validateUser(this.emailValue, this.passwordValue);
+    this.authService.validateUserLogin(this.emailValue, this.passwordValue);
   }
     
   }

@@ -10,41 +10,44 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class UsersComponent implements OnInit {
 
-  allUsers: any
-  Search: any
-  constructor(private router: Router, private userAuthService: UserAuthService, private ref: ChangeDetectorRef) { }
+  allProfiles: any;
+  Search: any;
 
-  ngOnInit(): void {
-    
-    this.userAuthService.loading = false
-    if (this.userAuthService.getLoggedInStatus()) {
-      console.log("In profile Page")
-      this.allUsers = this.userAuthService.getAllUsers();
-      console.log(this.allUsers)
-    }
-    else {
-      this.logout();
-    }
-  }
-  clear(){
-    this.Search = "";
-    this.searchKeyword();
-  }
-  searchKeyword() {
+  constructor(private userAuthService: UserAuthService, private router: Router, private ref: ChangeDetectorRef) { }
+  
+  onSearchUser() {
     var keyword = this.Search.toLocaleLowerCase();
-    this.allUsers = this.userAuthService.getAllUsers();
+    this.allProfiles = this.userAuthService.getAllUsers();
     if (keyword) {
-      this.allUsers = (this.allUsers.filter((o: any) => { return ((o.firstName.toLocaleLowerCase().includes(keyword)) || (o.lastName.toLocaleLowerCase().includes(keyword))) }));
+      this.allProfiles = (this.allProfiles.filter((o: any) => { return ((o.firstName.toLocaleLowerCase().includes(keyword)) || (o.lastName.toLocaleLowerCase().includes(keyword))) }));
       this.ref.detectChanges();
     }
   }
-  logout() {
-    this.userAuthService.setLoggedInStatus(null)
-    this.router.navigate(['/login'])
+
+  onClear(){
+    this.Search = "";
+    this.onSearchUser();
   }
 
-  openCard(id: any) {
-    this.userAuthService.getUserById(id);
+  onSelectProfile(id: any) {
+    this.userAuthService.getUserByIdCall(id);
   }
+
+  onLogout() {
+    this.userAuthService.setUserLoggedInStatus(null);
+    this.router.navigate(['/login']);
+  }
+
+  ngOnInit(): void {
+       this.userAuthService.loading = false
+    if (this.userAuthService.getUserLoggedInStatus()) {
+      this.allProfiles = this.userAuthService.getAllUsers();
+      console.log(this.allProfiles)
+    }
+    else {
+      this.onLogout();
+    }
+  }
+
 }
 

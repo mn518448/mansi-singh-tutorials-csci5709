@@ -1,10 +1,10 @@
 # Tutorial 4
-In this tutorial, 2 web pages were created- Profile Registration and Profile. The Profile Registration page consists of a form with fields such as First name, Last name, Email, Password and Confirm Password, and a Register button. The Profile page displays fields such as First name, Last name and email. Frontend validations have also been performed.
+In this tutorial, 3 web pages are created- Login page, Profile page and Profile Detail page. In the login page, email address and password are entered. On clicking Submit button, a post call is sent to an API. API will send a "Login successful" when the given credentials (email address: jonsnow@westeros.com, password: G@me0fthr0ne5) are passed. In case any other user credentials are passed, "Invalid email/password" will be sent as a response by the API. Based on the response from this post call, further actions are done. The user is directed to Profile page in case of a successful login, where, in turn, a get call to an API is sent and user can see a list of profiles. Search functionality has also been implemented on the Profile page where user can search profiles based on their first and last names. If a particular profile is clicked, details of that respective profile can be seen on the Profile Detail page. A logout button has also been provided for the user to log out of the application and the user will be redirected to the login page. Frontend validations for email address and password fields have also been performed.
 
 * Date Created: 12 06 2021
 * Last Modification Date: 14 06 2021
 * Github URL: https://github.com/mn518448/mansi-singh-tutorials-csci5709.git
-* Heroku URL: 
+* Heroku URL: https://web-tutorial4.herokuapp.com/login
 * Branch name: tutorial-4
 * Branch link: https://github.com/mn518448/mansi-singh-tutorials-csci5709/tree/tutorial-4
 
@@ -67,7 +67,7 @@ Below are the steps which were followed to deploy the application using command 
 * [Angular Material](https://material.angular.io/) - To design components for Angular
 
 ## Sources Used
-
+* [Angular Material](https://material.angular.io/)
 
 
 ### server.js

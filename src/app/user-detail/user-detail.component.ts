@@ -10,24 +10,26 @@ import { UserAuthService } from '../user-auth.service';
 export class UserDetailComponent implements OnInit {
 
   user:any
+
   constructor(private router: Router, private userAuthService: UserAuthService) { }
+
+  onBack() {
+    this.router.navigate(['/profile'])
+  }  
+
+  onLogout() {
+    this.userAuthService.setUserLoggedInStatus(null);
+    this.router.navigate(['/login']);
+  }
 
   ngOnInit(): void {
     this.userAuthService.loading = false
-    if (this.userAuthService.getLoggedInStatus()) {
-      console.log("In profile details Page")
-      this.user = this.userAuthService.getSelectedUser();
-      console.log(this.user)
+    if (this.userAuthService.getUserLoggedInStatus()) {
+      this.user = this.userAuthService.getSelectedUserProfile();
     }
     else {
-      this.logout();
+      this.onLogout();
     }
   }
-  back() {
-    this.router.navigate(['/profile'])
-  }  
-  logout() {
-    this.userAuthService.setLoggedInStatus(null)
-    this.router.navigate(['/login'])
-  }
+
 }

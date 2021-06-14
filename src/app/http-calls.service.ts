@@ -7,24 +7,22 @@ import { Router } from '@angular/router';
 })
 export class HttpCallsService {
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private httpClient: HttpClient, private router: Router) { }
 
   loginUser(email: string, password: string){
     let reqObject = {
       email: email, 
       password: password
     };
-    console.log(reqObject);
-     return this.http.post('https://tutorial4-api.herokuapp.com/api/users/login', reqObject);
+     return this.httpClient.post('https://tutorial4-api.herokuapp.com/api/users/login', reqObject);
   }
 
-getAllUsers(){
-  return this.http.get('https://tutorial4-api.herokuapp.com/api/users/');
+getAllProfileUsers(){
+  return this.httpClient.get('https://tutorial4-api.herokuapp.com/api/users/');
 }
 
-getUserById(id:any){
-return this.http.get('https://tutorial4-api.herokuapp.com/api/users/' + id);
-
+getUserProfileById(id:any){
+return this.httpClient.get('https://tutorial4-api.herokuapp.com/api/users/' + id);
 }
 
 }

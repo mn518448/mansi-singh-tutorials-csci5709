@@ -1,28 +1,31 @@
-<div style="padding: 0 16px;margin: 30px 30% 32px;width: 36vw;">
-  <div style="text-align: center; background-color:crimson; width: 32vw; margin: 15px;border-radius: 4px; font-weight: 700 ;padding: 15px; color: aliceblue;">
-    <span>Login Form</span>
+<div class="login-container">
+  <div class="loginForm-heading">Login Form
   </div>
   <div>
     <form [formGroup]="loginForm" style="padding: 10px;" (ngSubmit)="onSubmit()">
-      <div class="innerDiv">
-        <input type="text" id="email" name="email" formControlName="Email" placeholder="Enter Email Id" style="width:33vw;line-height:25px; border-radius: 4px; font-weight: 700;border-color: #B4BCAF;"/>
+      <div class="formDiv">
+        <input type="text" id="email" name="email" formControlName="Email" placeholder="Enter Email Id" class="email-div"/>
         <div *ngIf="(loginForm.get('Email').invalid && (loginForm.get('Email').touched) || loginForm.get('Email').dirty)">
           <small *ngIf="loginForm.controls['Email'].errors?.required" style="color: red;">Email is required</small><br>
           <small *ngIf="loginForm.controls['Email'].errors?.pattern" style="color: red;">Invalid email</small>
         </div>
       </div>
-      <div class="innerDiv">
-        <input type="password" id="password" name="password" formControlName="Password" placeholder="Enter Password" style="width:33vw;line-height:25px; border-radius: 4px; font-weight: 700;border-color: #B4BCAF;"/>
+
+      <div class="formDiv">
+        <input type="password" id="password" name="password" formControlName="Password" placeholder="Enter Password" class="password-div"/>
         <div *ngIf="(loginForm.get('Password').invalid && (loginForm.get('Password').touched) || loginForm.get('Password').dirty)">
           <small *ngIf="loginForm.controls['Password'].errors?.required" style="color: red;">Password is required</small><br>
         </div>
       </div>
-      <!-- <div style="padding: 5px;">
-        <small *ngIf="loginForm.errors?.credentialMismatch" style="color:red;">{{errorMessage}}</small>
-      </div> -->
+
+      <div style="padding: 5px;">
+        <small *ngIf="authService?.loggedInStatus && !authService?.loggedInStatus?.status">{{authService?.loggedInStatus?.message}}</small>
+      </div>
+      
       <div style="padding: 5px;">
         <button type="Submit" [disabled]="!loginForm.valid" color="primary">Submit</button>
       </div>
+      
     </form>
   </div>
 </div>

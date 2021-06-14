@@ -1,3 +1,37 @@
-.innerDiv{
+.formDiv{
   padding: 5px;
+}
+
+.login-container{
+  padding: 0 16px;
+  margin: 30px 30% 32px;
+  width: 36vw;
+}
+
+.loginForm-heading{
+  text-align: center;
+  color:crimson; 
+  width: 32vw; 
+  margin: 15px;
+  border-radius: 4px; 
+  font-size: 30px;
+  font-weight: 700 ;
+  padding: 15px; 
+  /* color: aliceblue; */
+}
+
+.email-div{
+  width:33vw;
+  line-height:25px; 
+  border-radius: 4px; 
+  font-weight: 700;
+  border-color: #B4BCAF;
+}
+
+.password-div{
+  width:33vw;
+  line-height:25px;
+   border-radius: 4px; 
+   font-weight: 700; 
+   border-color: #B4BCAF;
 }

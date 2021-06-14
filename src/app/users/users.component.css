@@ -1,18 +1,27 @@
 .form-field{
-    width: 50%;
-    margin: 5px;
+    width: 40%;
+    margin: 10px;
+    align-items: center;
+    
 }
 html,body { 
     height:98%;
 }
+
 .profile-container{
     width: 100%;
-    background-color: #EAEAEA;
+    background-color:cornsilk;
     display: flex;
     flex-flow: row wrap;
     padding: 0px 9%;
     overflow-y: auto;
-    margin-top: 65px;
+    margin-top: 100px;
+}
+
+.logout{
+    padding-top: 0px;
+    float: right; 
+    margin: 15px;
 }
 
 .profile-card{
@@ -27,8 +36,7 @@ img{
     width: 100%;
 }
 
-.detail-section{
-
+.detail-section-of-profile{
     height: 50px;
     text-align: center;
     font-size: larger;
@@ -39,4 +47,28 @@ img{
     width: 100vw
 }
 
+.users-Div{
+    height: 100px;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    background-color: cadetblue;
+    width: 100%;
+    margin: 0px;
+}
 
+.welcome-heading{
+    font-size:30px;
+    margin: 20px;
+    position: relative;
+    top: 20px;
+    font-weight: 700;
+}
+
+.search{
+    font-size: 25px;
+}
+
+.inputForSearch{
+    height: 25px;
+}

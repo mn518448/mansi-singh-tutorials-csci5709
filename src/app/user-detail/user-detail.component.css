@@ -1,22 +1,58 @@
+profile-detail{
+    margin: 0px;
+    height: 80px ;
+    top: 0;
+    background-color:cadetblue;
+    width: 100%; 
+    position: fixed;
+    z-index: 1000;
+}
+
+.back{
+    float:left;
+     margin: 15px;
+}
+
+.logout{
+    float:right; 
+    margin: 15px;
+}
+
+.profile-detail-container{
+    overflow-y: auto;
+    margin-top: 65px;
+    width: 100%;
+    background-color:cornsilk;
+    padding: 0px 9%;
+    height: 100%;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.title{
+    text-transform: capitalize;
+}
+
+.table-class{
+    width: 100%;
+}
+
 html,body { 
     height:98%;
 }
-.profile-container{
-    width: 100%;
-    background-color: #EAEAEA;
-    display: flex;
-    flex-flow: row wrap;
-    padding: 0px 9%;
-    overflow-y: auto;
-    margin-top: 65px;
-    height: 100%;
+
+.profile-heading{
+    position: relative;
+    top: 20px;
+    text-align: center;
+    margin: 20px;
+    font-size: 25px;
+    font-weight: 700;
 }
 
 .card{
-    
     margin: auto;
     width: 70%;
     font-size: 25px;
-    line-height: 40px;
-
+    line-height: 30px;
 }
