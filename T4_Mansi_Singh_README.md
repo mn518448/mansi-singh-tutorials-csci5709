@@ -1,12 +1,12 @@
-# Tutorial 3
+# Tutorial 4
 In this tutorial, 2 web pages were created- Profile Registration and Profile. The Profile Registration page consists of a form with fields such as First name, Last name, Email, Password and Confirm Password, and a Register button. The Profile page displays fields such as First name, Last name and email. Frontend validations have also been performed.
 
-* Date Created: 03 06 2021
-* Last Modification Date: 03 06 2021
-* Github URL: https://github.com/mn518448/mansi-singh-csci5709.git
-* Heroku URL: https://web-tutorial3.herokuapp.com/register
-* Branch name: main
-* Branch link: https://github.com/mn518448/mansi-singh-csci5709
+* Date Created: 12 06 2021
+* Last Modification Date: 14 06 2021
+* Github URL: https://github.com/mn518448/mansi-singh-tutorials-csci5709.git
+* Heroku URL: 
+* Branch name: tutorial-4
+* Branch link: https://github.com/mn518448/mansi-singh-tutorials-csci5709/tree/tutorial-4
 
 ## Authors
 
@@ -64,6 +64,7 @@ Below are the steps which were followed to deploy the application using command 
 * [Angular](https://angular.io/guide/setup-local) - The frontend framework
 * [Node](https://nodejs.org/en/) - The backend framework 
 * [Express](https://www.npmjs.com/package/express) - To create REST API
+* [Angular Material](https://material.angular.io/) - To design components for Angular
 
 ## Sources Used
 
@@ -108,7 +109,7 @@ app.listen(process.env.PORT || 8080);
 
 - The code in [ITNEXT](https://itnext.io/how-to-deploy-angular-application-to-heroku-1d56e09c5147) was implemented by Olutunmbi Banto
 - [ITNEXT](https://itnext.io/how-to-deploy-angular-application-to-heroku-1d56e09c5147)'s Code was used to refer how to deploy front end application on Heroku and also to understand the role of server.js file.
-- [ITNEXT](https://itnext.io/how-to-deploy-angular-application-to-heroku-1d56e09c5147)'s Code was modified by Group12-S21.
+- [ITNEXT](https://itnext.io/how-to-deploy-angular-application-to-heroku-1d56e09c5147)'s Code was modified by Mansi Singh.
 
 
 ### package.json
